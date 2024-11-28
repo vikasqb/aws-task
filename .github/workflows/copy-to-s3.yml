@@ -22,4 +22,4 @@ jobs:
 
     - name: Sync to S3
       run: |
-        aws s3 cp index.html s3://staticcontentbucket/ --acl public-read
+        aws s3 cp index.html s3://staticcontentbucket/
