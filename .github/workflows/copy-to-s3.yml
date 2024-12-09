@@ -2,8 +2,8 @@ name: Deploy to S3
 
 on:
   push:
-    tags:
-      - 'v[0-9]+.0' # Trigger workflow on push to the main branch
+    branches:
+      - main # Trigger workflow on push to the main branch
 
 jobs:
   deploy:
@@ -22,4 +22,9 @@ jobs:
 
     - name: Sync to S3
       run: |
-        aws s3 cp index.html s3://staticcontentbucket/
+        aws deploy push \
+          --application-name MyFirstApp \
+          --description "This is a revision for the application MyFirstApp" \
+          --ignore-hidden-files \
+          --s3-location s3://task3-db-dump-bucket/static.zip \
+          --source .
