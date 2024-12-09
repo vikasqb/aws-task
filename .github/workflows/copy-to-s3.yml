@@ -22,9 +22,5 @@ jobs:
 
     - name: Sync to S3
       run: |
-        aws deploy push \
-          --application-name MyFirstApp \
-          --description "This is a revision for the application MyFirstApp" \
-          --ignore-hidden-files \
-          --s3-location s3://task3-db-dump-bucket/static.zip \
-          --source .
+        zip static.zip index.html appspec.yml
+        aws s3 cp static.zip s3://staticcontentbucket/
