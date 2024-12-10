@@ -23,4 +23,4 @@ jobs:
     - name: Sync to S3
       run: |
         zip -r static.zip index.html appspec.yml scripts/
-        aws s3 cp static.zip s3://staticcontentbucket/
+        aws s3 cp static.zip s3://task3-db-dump-bucket/
