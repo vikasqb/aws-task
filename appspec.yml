@@ -4,3 +4,9 @@ files:
   - source: index.html
     destination: /var/www/static/
 
+hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh
+      timeout: 300
+      runas: root
+
